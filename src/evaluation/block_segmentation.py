@@ -5,8 +5,8 @@ import os
 # ------------------------------------------------------------------------------
 # Configurable Parameters
 # ------------------------------------------------------------------------------
-DEFAULT_INPUT_PATH = "raw_data/combined_cloud_s1_to_s2.ply"
-DEFAULT_OUTPUT_DIR = "clusters"
+DEFAULT_INPUT_PATH = "C:/Users/VIB/point_cloud_reg/data/processed/processed_full/processed_7.ply"
+DEFAULT_OUTPUT_DIR = "C:/Users/VIB/point_cloud_reg/data/processed/clusters"
 
 # Plane-segmentation parameters
 MAX_PLANES = 1
@@ -109,6 +109,11 @@ def extract_and_save_clusters(
     print("[DEBUG] Removing largest plane(s) from point cloud.")
     non_table_pcd = remove_max_plane(pcd)
     
+    # Save the plane-removed point cloud
+    # plane_removed_path = os.path.join(output_dir, "plane_removed.ply")
+    # o3d.io.write_point_cloud(plane_removed_path, non_table_pcd)
+    # print(f"[DEBUG] Saved plane-removed point cloud to {plane_removed_path}")
+
     print("[DEBUG] Performing DBSCAN object clustering.")
     labels = cluster_objects(non_table_pcd)
     
@@ -126,8 +131,8 @@ def extract_and_save_clusters(
         clusters.append(cluster)
     
     print(f"[DEBUG] Saving clusters to '{output_dir}'.")
-    save_clusters(clusters, output_dir)
-
+    # save_clusters(clusters , output_dir)
+    
 # ------------------------------------------------------------------------------
 # Script entry point
 # ------------------------------------------------------------------------------
