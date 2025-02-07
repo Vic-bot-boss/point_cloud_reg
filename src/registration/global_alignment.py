@@ -59,7 +59,6 @@ def fgr_global_registration(
     )
     return result
 
-
 # A registry to easily pick a method by name:
 GLOBAL_ALIGNMENT_METHODS = {
     "ransac": ransac_global_registration,
