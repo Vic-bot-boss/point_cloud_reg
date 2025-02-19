@@ -20,7 +20,7 @@ def compute_fpfh_features(pcd, voxel_size=0.05):
     )
 
     # 3) Compute FPFH
-    radius_feature = voxel_size * 5
+    radius_feature = voxel_size * 7
     fpfh = o3d.pipelines.registration.compute_fpfh_feature(
         pcd_down,
         o3d.geometry.KDTreeSearchParamHybrid(

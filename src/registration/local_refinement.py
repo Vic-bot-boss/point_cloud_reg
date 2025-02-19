@@ -15,7 +15,8 @@ def icp_refinement(
         target,
         max_distance,
         init_transformation,
-        o3d.pipelines.registration.TransformationEstimationPointToPlane()
+        o3d.pipelines.registration.TransformationEstimationPointToPlane(),
+        o3d.pipelines.registration.ICPConvergenceCriteria(max_iteration=2000)
     )
     return result_icp
 
